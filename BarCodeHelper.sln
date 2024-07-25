@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarCodeHelper", "BarCodeHelper\BarCodeHelper.csproj", "{82B3FFAF-2D7A-43F0-896F-E3CBD2B92F56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarCodeHelper.DataAccess", "BarCodeHelper.DataAccess\BarCodeHelper.DataAccess.csproj", "{AEC978B8-05C9-4CD2-86D2-D894CDAADA11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarCodeHelper.Models", "BarCodeHelper.Models\BarCodeHelper.Models.csproj", "{741BC4C9-FD04-4BF4-893A-160C88B6F71C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarCodeHelper.Utility", "BarCodeHelper.Utility\BarCodeHelper.Utility.csproj", "{9F3681C7-B5AC-4042-97B8-D6ABBCC72A65}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{82B3FFAF-2D7A-43F0-896F-E3CBD2B92F56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82B3FFAF-2D7A-43F0-896F-E3CBD2B92F56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82B3FFAF-2D7A-43F0-896F-E3CBD2B92F56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82B3FFAF-2D7A-43F0-896F-E3CBD2B92F56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEC978B8-05C9-4CD2-86D2-D894CDAADA11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEC978B8-05C9-4CD2-86D2-D894CDAADA11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEC978B8-05C9-4CD2-86D2-D894CDAADA11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEC978B8-05C9-4CD2-86D2-D894CDAADA11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{741BC4C9-FD04-4BF4-893A-160C88B6F71C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{741BC4C9-FD04-4BF4-893A-160C88B6F71C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{741BC4C9-FD04-4BF4-893A-160C88B6F71C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{741BC4C9-FD04-4BF4-893A-160C88B6F71C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F3681C7-B5AC-4042-97B8-D6ABBCC72A65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F3681C7-B5AC-4042-97B8-D6ABBCC72A65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F3681C7-B5AC-4042-97B8-D6ABBCC72A65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F3681C7-B5AC-4042-97B8-D6ABBCC72A65}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {151BCEF6-5D0B-4EFE-8FA2-DC64918F3D1B}
+	EndGlobalSection
+EndGlobal
