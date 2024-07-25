@@ -1,0 +1,63 @@
+﻿/* Custom styles for the card */
+.card {
+    border-radius: 12px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+.card-header {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom: 3px solid #dee2e6;
+}
+
+.btn-primary, .btn-danger {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1.25rem; /* Larger font size for bigger buttons */
+    padding: 1rem 1.5rem; /* Larger padding for taller buttons */
+    height: auto; /* Ensures the button adapts to the content size */
+}
+
+.btn-danger {
+    background: linear-gradient(45deg, #dc3545, #c82333); /* Gradient for danger button */
+}
+
+    .btn-primary:hover, .btn-danger:hover {
+        background: linear-gradient(45deg, #0056b3, #004494);
+        transform: scale(1.05); /* Slightly enlarge button on hover */
+    }
+
+    .btn-danger:hover {
+        background: linear-gradient(45deg, #c82333, #bd2130); /* Hover effect for danger button */
+    }
+
+    .btn-primary:focus, .btn-danger:focus {
+        box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+        outline: none; /* Remove default outline */
+    }
+
+.border {
+    border-radius: 8px;
+}
+
+.container {
+    max-width: 800px; /* Center the card with a specific width */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 576px) {
+    .btn-primary, .btn-danger {
+        font-size: 1rem; /* Adjust font size for smaller screens */
+        padding: 0.75rem 1rem; /* Adjust padding for smaller screens */
+    }
+
+    .card-header h2 {
+        font-size: 1.5rem; /* Adjust header size for smaller screens */
+    }
+}
