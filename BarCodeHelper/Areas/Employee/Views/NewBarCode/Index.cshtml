@@ -1,0 +1,147 @@
+﻿@model BarCode
+
+<div class="card shadow border-0 mt-4">
+    <div class="card-header bg-secondary bg-gradient m-lg-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">Add new barcode</h2>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-4">
+        <form method="post" class="row" id="fridgeForm">
+            <div class="row">
+                <div class="col-12">
+                    <div class="border p-3">
+
+                        <div class="row mb-3">
+                            <label asp-for="@Model.BarCodeNumber" class="col-sm-2 col-form-label"></label>
+                            <div class="col-sm-10">
+                                <input asp-for="@Model.BarCodeNumber" class="form-control" />
+                                <span asp-validation-for="@Model.BarCodeNumber" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label asp-for="@Model.Product.SerialNumber" class="col-sm-2 col-form-label"></label>
+                            <div class="col-sm-10">
+                                <input list="serialNumbers" id="inputFieldSerialNumber" class="form-control" placeholder="Select or type...">
+                                <input type="hidden" asp-for="@Model.Product.SerialNumber" id="hiddenSerialNumber">
+                                <datalist id="serialNumbers">
+
+                                </datalist>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label asp-for="@Model.Product.Category" class="col-sm-2 col-form-label"></label>
+                            <div class="col-sm-10">
+                                <select id="categories" name="Product.Category" class="form-control selectpicker" data-live-search="false">
+                                    <option value="">Select a category</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label asp-for="@Model.Product.Name" class="col-sm-2 col-form-label"></label>
+                            <div class="col-sm-10">
+                                <input list="productNames" id="inputFieldProductName" class="form-control" placeholder="Select or type...">
+                                <input type="hidden" asp-for="@Model.Product.Name" id="hiddenProductName">
+                                <datalist id="productNames">
+
+                                </datalist>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3 justify-content-center">
+                            <div class="col-6 col-md-3">
+                                <button type="submit" class="btn btn-primary form-control">
+                                    Save
+                                </button>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a asp-area="Employee" asp-controller="Options" asp-action="Index" class="btn btn-danger form-control">
+                                    Cancel
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+    <script>
+        document.getElementById('inputFieldSerialNumber').addEventListener('input', function () {
+            const inputValue = this.value;
+            document.getElementById('hiddenSerialNumber').value = inputValue;
+        });
+
+        document.getElementById('inputFieldProductName').addEventListener('input', function () {
+            const inputValue = this.value;
+            document.getElementById('hiddenProductName').value = inputValue;
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.ajax({
+                url: '/employee/newbarcode/getallcategories',
+                type: 'GET',
+                success: function (response) {
+                    console.log('AJAX response:', response);
+                    if (response && Array.isArray(response.data)) {
+                        const categoriesDropdown = $('#categories');
+                        categoriesDropdown.empty();
+                        categoriesDropdown.append('<option value="">Select a category</option>');
+
+                        for (const category of response.data) {
+                            categoriesDropdown.append(`<option value="${category}">${category}</option>`);
+                        }
+
+                        categoriesDropdown.selectpicker('refresh');
+                    } else {
+                        console.error('Unexpected response structure or data is not an array.');
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error("An error occurred while fetching categories: " + status + " " + error);
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $.ajax({
+                url: '/employee/newbarcode/getallproducts',
+                type: 'GET',
+                success: function (response) {
+                    console.log('AJAX response:', response);
+                    if (response && Array.isArray(response.data)) {
+                        const serialNumbersDropdown = $('#serialNumbers');
+                        const productsNamesDropdown = $('#productNames');
+
+                        serialNumbersDropdown.empty();
+                        productsNamesDropdown.empty();
+
+                        for (const product of response.data) {
+                            productsNamesDropdown.append(`<option value="${product.name}"/>`);
+                            serialNumbersDropdown.append(`<option value="${product.serialNumber}"/>`);
+                        }
+                    } else {
+                        console.error('Unexpected response structure or data is not an array.');
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error("An error occurred while fetching categories: " + status + " " + error);
+                }
+            });
+        });
+    </script>
+}

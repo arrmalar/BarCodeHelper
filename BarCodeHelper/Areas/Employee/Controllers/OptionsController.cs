@@ -1,8 +1,6 @@
 using BarCodeHelper.DataAccess.Repository.IRepository;
 using BarCodeHelper.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Memory;
-using System.Diagnostics;
 
 namespace CookSupp.Areas.Customer.Controllers
 {
@@ -16,22 +14,15 @@ namespace CookSupp.Areas.Customer.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        [HttpPost]
-        public IActionResult NewBarCode(BarCode barCode)
+        [HttpGet]
+        public IActionResult OptionsPanel(BarCode barCode)
         {
-            // trzeba zapisaæ do bazy jako barCode który zosta³ zeskanowany ale jest nieprzypisany
-
-
-
-            // tutaj trzeba zapisaæ barCode do bazy
-            // po zapisie redirect do options
-
-            return View();
+            return View(barCode);
         }
 
-        public IActionResult Delete(BarCode barCode)
+        public IActionResult Delete(string? barCodeNumber)
         {
-            var barCodeToBeDeleted = _unitOfWork.BarCodeRepository.Get(b => b.BarCodeNumber == barCode.BarCodeNumber);
+            var barCodeToBeDeleted = _unitOfWork.BarCodeRepository.Get(b => b.BarCodeNumber == barCodeNumber);
 
             if (barCodeToBeDeleted == null)
             {

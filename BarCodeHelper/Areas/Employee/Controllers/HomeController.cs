@@ -1,4 +1,5 @@
 using BarCodeHelper.DataAccess.Repository.IRepository;
+using BarCodeHelper.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CookSupp.Areas.Customer.Controllers
@@ -15,20 +16,26 @@ namespace CookSupp.Areas.Customer.Controllers
 
         public IActionResult Index()
         {
-            var barcode = "";
-            return View("Index", barcode);
+            var barCodeNumber = new BarCodeNumber();
+            return View("Index", barCodeNumber);
         }
 
         [HttpPost]
-        public IActionResult Index(string barCodeNumber)
+        public IActionResult Index(BarCodeNumber barCodeNumber)
         {
-            var barcodeFromDB = _unitOfWork.BarCodeRepository.Get(b => b.BarCodeNumber == barCodeNumber);
+            var barcodeFromDB = _unitOfWork.BarCodeRepository.Get(b => b.BarCodeNumber == barCodeNumber.Number, includeProperties: "Product");
 
-            if (barcodeFromDB != null) {
-                return View("../Options/OptionsPanel", barcodeFromDB);
+            if (barcodeFromDB != null)
+            {
+                return RedirectToAction("OptionsPanel", "Options", barcodeFromDB);
             }
 
-            return View("../Options/NewBarcode", barcodeFromDB);
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("Index", "NewBarCode", new { barCodeNumber = barCodeNumber.Number });
+            }
+
+            return View(barCodeNumber);
         }
     }
 }
