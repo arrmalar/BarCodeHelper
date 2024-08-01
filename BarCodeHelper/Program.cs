@@ -5,14 +5,19 @@ using BarCodeHelper.Utility;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Configuration.AddUserSecrets<Program>();
+
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
-    .EnableSensitiveDataLogging()
+builder.Services.AddDbContext<ApplicationDbContext>(options => {
+        var connectionString = builder.Configuration.GetSection("ConnectionStrings:BarCodeHelper")["SqlDb"];
+        var connectionString2 = builder.Configuration.GetConnectionString("DefaultConnection");
+        options.UseSqlServer(connectionString2).EnableSensitiveDataLogging();
+    }
 );
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();

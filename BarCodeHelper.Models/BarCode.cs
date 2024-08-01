@@ -13,7 +13,7 @@ namespace BarCodeHelper.Models
         public string ProductSerialNumber { get; set; }
 
         [ForeignKey("ProductSerialNumber")]
-        [ValidateNever]
+        [Required]
         public Product Product { get; set; }
 
         [Required]

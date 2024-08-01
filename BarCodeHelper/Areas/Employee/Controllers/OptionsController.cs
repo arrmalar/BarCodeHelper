@@ -1,6 +1,7 @@
 using BarCodeHelper.DataAccess.Repository.IRepository;
 using BarCodeHelper.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace CookSupp.Areas.Customer.Controllers
 {
@@ -47,7 +48,45 @@ namespace CookSupp.Areas.Customer.Controllers
 
         public IActionResult Details(BarCode barCode)
         {
-            return View(barCode);
+            var barCodeFromDb = _unitOfWork.BarCodeRepository.Get(b => b.BarCodeNumber == barCode.BarCodeNumber, includeProperties: "Product");
+            return View(barCodeFromDb);
+        }
+
+        [HttpPost]
+        public IActionResult Save(BarCode barCode)
+        {
+            if (!ModelState.IsValid)
+            {
+                var errors = ModelState.Values.SelectMany(v => v.Errors)
+                                              .Select(e => e.ErrorMessage)
+                                              .ToList();
+
+                return BadRequest(new { Success = false, Message = "Validation failed", Errors = errors });
+            }
+
+            try
+            {
+                _unitOfWork.ProductRepository.Update(barCode.Product);
+                _unitOfWork.Save();
+                return Ok(new { Success = true, Message = "Product updated successfully" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Success = false, Message = "An error occurred while updating the product", Error = ex.Message });
+            }
+        }
+
+
+        public IActionResult GetAllCategories()
+        {
+            var categories = Enum.GetNames(typeof(ProductCategory));
+            return Json(new { data = categories });
+        }
+
+        public IActionResult GetAllProducts()
+        {
+            var products = _unitOfWork.ProductRepository.GetAll();
+            return Json(new { data = products });
         }
     }
 }

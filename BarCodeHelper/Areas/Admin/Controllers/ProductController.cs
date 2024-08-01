@@ -31,14 +31,17 @@ namespace CookSupp.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Create(Product product)
         {
-            if (ModelState.IsValid)
+            var productFromDB = _unitOfWork.ProductRepository.Get(p => p.SerialNumber == product.SerialNumber);
+
+            if (ModelState.IsValid && productFromDB == null)
             {
                 _unitOfWork.ProductRepository.Add(product);
                 _unitOfWork.Save();
                 TempData["success"] = "Product created successfully";
                 return RedirectToAction("Index");
             }
-            return View();
+
+            return View(product);
         }
 
         public IActionResult Edit(string? serialNumber)
@@ -56,7 +59,13 @@ namespace CookSupp.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Edit(Product? product)
         {
-            if (ModelState.IsValid)
+            if (product == null) {
+                return RedirectToAction("Index");
+            }
+
+            var productFromDB = _unitOfWork.ProductRepository.Get(p => p.SerialNumber == product.SerialNumber);
+
+            if (ModelState.IsValid && productFromDB == null)
             {
                 _unitOfWork.ProductRepository.Update(product);
                 _unitOfWork.Save();
@@ -86,6 +95,26 @@ namespace CookSupp.Areas.Admin.Controllers
             _unitOfWork.Save();
 
             return Json(new { success = true, message = "Delete successful" });
+        }
+
+        public IActionResult GetAllCategories()
+        {
+            var categories = Enum.GetNames(typeof(ProductCategory));
+            return Json(new { data = categories });
+        }
+
+        // dynamic
+        [HttpPost]
+        public JsonResult CheckSerialNumberExists(string serialNumber)
+        {
+            var productFromDB = _unitOfWork.ProductRepository.Get(p => p.SerialNumber == serialNumber);
+
+            if (productFromDB != null)
+            {
+                return Json(new { exists = true });
+            }
+
+            return Json(new { exists = false });
         }
     }
 }

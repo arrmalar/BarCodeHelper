@@ -1,5 +1,92 @@
 ﻿@model BarCode
 
-<div>
-    @Model.BarCodeNumber
+<div class="card shadow border-0 mt-4">
+    <div class="card-header bg-secondary bg-gradient m-lg-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">Barcode details</h2>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-4">
+        <form method="post" class="row" id="detailsForm">
+            <div class="row">
+                <div class="col-12">
+                    <div class="border p-3">
+
+                        <div class="row mb-3">
+                            <label asp-for="@Model.BarCodeNumber" class="col-sm-2 col-form-label"></label>
+                            <div class="col-sm-10">
+                                <input asp-for="@Model.BarCodeNumber" class="form-control" readonly />
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label asp-for="@Model.Created" class="col-sm-2 col-form-label"></label>
+                            <div class="col-sm-10">
+                                <input type="datetime" asp-for="@Model.Created" class="form-control" readonly/>
+                            </div>
+                        </div>
+
+                        <hr/>
+
+                        <div class="row mb-3">
+                            <label asp-for="@Model.ProductSerialNumber" class="col-sm-2 col-form-label"></label>
+                            <div class="col-sm-10">
+                                <input asp-for="@Model.ProductSerialNumber" class="form-control" readonly/>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label asp-for="@Model.Product.Category" class="col-sm-2 col-form-label"></label>
+                            <div class="col-sm-10">
+                                <select id="productCategory" asp-for="@Model.Product.Category" name="Product.Category" class="form-control selectpicker" data-live-search="false">
+                                    <option value="">-- Select Category --</option> -->
+                                </select>
+                                <span asp-validation-for="@Model.Product.Category" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label asp-for="@Model.Product.Name" class="col-sm-2 col-form-label"></label>
+                            <div class="col-sm-10">
+                                <input id="inputFieldProductName" asp-for="@Model.Product.Name" class="form-control" readonly />
+                                <span asp-validation-for="@Model.Product.Name" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3 justify-content-center">
+                            <div class="col-6 col-md-3">
+                                <button id="editButton" type="button" class="btn btn-primary form-control">
+                                    Edit
+                                </button>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <button id="cancelButton" type="button" class="btn btn-danger form-control">
+                                    Back
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+    <script>
+        var model = @Html.Raw(Json.Serialize(Model));
+
+        $(document).ready(function () {
+            initBarcodeDetails(model);
+        });
+    </script>
+
+    <script src="~/js/details_options.js"></script>
+}

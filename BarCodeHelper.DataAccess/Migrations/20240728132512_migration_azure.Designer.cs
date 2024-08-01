@@ -4,6 +4,7 @@ using BarCodeHelper.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BarCodeHelper.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240728132512_migration_azure")]
+    partial class migration_azure
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,481 +64,481 @@ namespace BarCodeHelper.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            SerialNumber = "37b42e77-2536-4b68-bb62-934ef0c4defd",
+                            SerialNumber = "9299e1b4-60d0-4344-84f6-69e26dd3a943",
                             Category = 1,
                             Name = "Men's Swim Trunks"
                         },
                         new
                         {
-                            SerialNumber = "f8177c12-172f-407e-aef8-4c71505b0715",
+                            SerialNumber = "ac2e3d5b-c3c0-4ae5-87ab-bb21367bda69",
                             Category = 1,
                             Name = "Women's Bikini"
                         },
                         new
                         {
-                            SerialNumber = "a90d8669-98d8-4a63-b65c-f8a090c99389",
+                            SerialNumber = "08de442c-d280-4bbb-bac2-975c88f2177d",
                             Category = 1,
                             Name = "Unisex Rash Guard"
                         },
                         new
                         {
-                            SerialNumber = "09efcdd5-2faf-4cc2-acf9-541d17618fb0",
+                            SerialNumber = "b7d9cd45-8760-4319-b603-4ad36b979a66",
                             Category = 1,
                             Name = "Kids' One-Piece Swimsuit"
                         },
                         new
                         {
-                            SerialNumber = "4bb27f4a-d0ee-45cf-85e7-d9764b045060",
+                            SerialNumber = "8b1897c2-8947-4d2b-b576-7007def66d29",
                             Category = 1,
                             Name = "Ladies' Tankini"
                         },
                         new
                         {
-                            SerialNumber = "bca52821-9971-43ed-b7d1-715587254e4c",
+                            SerialNumber = "44ae1b4e-7295-4299-9254-8d6cac4992aa",
                             Category = 1,
                             Name = "Board Shorts"
                         },
                         new
                         {
-                            SerialNumber = "d0edeff7-4a8e-4cd5-8688-22a60ba87bef",
+                            SerialNumber = "70acd7b8-7cef-4c82-9ba2-bafee7050668",
                             Category = 1,
                             Name = "Swim Briefs"
                         },
                         new
                         {
-                            SerialNumber = "05384025-137c-4e02-978c-1cf4338181e0",
+                            SerialNumber = "4ed55b8d-e533-470b-a428-ba3ee361a0e4",
                             Category = 1,
                             Name = "High Waist Swim Bottoms"
                         },
                         new
                         {
-                            SerialNumber = "0158ea5b-bc11-4e41-b4b4-a8477f121716",
+                            SerialNumber = "f654248f-c82a-434e-b1e0-c2a33bb1c6b3",
                             Category = 1,
                             Name = "Sporty Swim Top"
                         },
                         new
                         {
-                            SerialNumber = "eaa87cbf-b017-417e-9161-a713b49967ed",
+                            SerialNumber = "b3667db8-5f5e-43c2-83f4-4f8cd0b285da",
                             Category = 1,
                             Name = "Triangle Bikini Top"
                         },
                         new
                         {
-                            SerialNumber = "764196e3-277d-461f-8a85-92aa5d747405",
+                            SerialNumber = "680011f1-3964-40a6-82af-d818af7b95f5",
                             Category = 1,
                             Name = "Full Body Swimsuit"
                         },
                         new
                         {
-                            SerialNumber = "c348a05a-127b-412b-a3bf-f4db1c872f05",
+                            SerialNumber = "d400c1d2-7d5a-4635-ab60-2447cf54c1eb",
                             Category = 1,
                             Name = "Surf Swimwear"
                         },
                         new
                         {
-                            SerialNumber = "da2716bf-f193-47e4-a7e4-c6692b1a3f74",
+                            SerialNumber = "4c5580c0-f754-4d44-8a64-6b3065f04c18",
                             Category = 1,
                             Name = "Floral Bikini Set"
                         },
                         new
                         {
-                            SerialNumber = "9f12f3b1-ba25-41dc-95cd-9b210e52ef44",
+                            SerialNumber = "8894d111-9331-46bb-a98c-a37c3b84f3e6",
                             Category = 1,
                             Name = "Halter Swim Dress"
                         },
                         new
                         {
-                            SerialNumber = "2157b6e0-cffc-4242-af45-251cd2a42a5e",
+                            SerialNumber = "0921a8d9-99ac-4d58-b5fb-77ff33bc05a0",
                             Category = 1,
                             Name = "Crochet Swimsuit"
                         },
                         new
                         {
-                            SerialNumber = "0f4032d4-bf18-4ac9-a937-54157a654963",
+                            SerialNumber = "a4426292-60a6-4376-a0ef-61e1a00e1720",
                             Category = 1,
                             Name = "Push-up Bikini"
                         },
                         new
                         {
-                            SerialNumber = "3a4e9582-cfae-4840-8ac5-4b352273cc27",
+                            SerialNumber = "33b5a1dc-be5a-4f97-ac7c-9bfc751b717b",
                             Category = 1,
                             Name = "Swimming Cap"
                         },
                         new
                         {
-                            SerialNumber = "951af12e-b87e-4397-acb3-77531ab662fb",
+                            SerialNumber = "be5891a5-842d-411b-8b3d-8149f6fe36f5",
                             Category = 1,
                             Name = "Swimming Goggles"
                         },
                         new
                         {
-                            SerialNumber = "700e2834-d54f-47f4-8f2f-1d9dd7094697",
+                            SerialNumber = "e63b7a31-ec9a-43f5-99e5-d32d8bd14df2",
                             Category = 1,
                             Name = "Swimming Fins"
                         },
                         new
                         {
-                            SerialNumber = "f8c40ee6-4455-4d83-a82f-2070f0448423",
+                            SerialNumber = "0c6589a1-f4c8-4dd0-bf45-d54e19e7f5eb",
                             Category = 1,
                             Name = "Swim Cap"
                         },
                         new
                         {
-                            SerialNumber = "1b39e4c7-b250-45d9-b875-32af8c435c8d",
+                            SerialNumber = "c99dbf8d-29f9-49d2-beee-80c337949262",
                             Category = 2,
                             Name = "Denim Jeans"
                         },
                         new
                         {
-                            SerialNumber = "0433a28e-5188-46b2-a12d-71f33d991b67",
+                            SerialNumber = "79499da5-27ed-44e5-a2c7-d4d08404cea8",
                             Category = 2,
                             Name = "Cargo Pants"
                         },
                         new
                         {
-                            SerialNumber = "ddbe23ca-29ef-4c99-bade-0f32c5fdb0b5",
+                            SerialNumber = "9289f56a-6c47-402f-b576-57e159c3e280",
                             Category = 2,
                             Name = "Formal Trousers"
                         },
                         new
                         {
-                            SerialNumber = "d20f4fa9-356f-4951-8942-c071b86d9102",
+                            SerialNumber = "d6ce2221-b94a-48fb-a6ee-93d40ffb7b4f",
                             Category = 2,
                             Name = "Chinos"
                         },
                         new
                         {
-                            SerialNumber = "ece251a2-1dfa-47dc-8230-5b94b088fca7",
+                            SerialNumber = "0396bb96-afd5-4d13-8407-0dc260b50ccc",
                             Category = 2,
                             Name = "Jogger Pants"
                         },
                         new
                         {
-                            SerialNumber = "4a7e151f-7574-459f-a07d-6c79fe1d0853",
+                            SerialNumber = "6854e109-b523-4409-b496-703fc0e30f03",
                             Category = 2,
                             Name = "Capri Pants"
                         },
                         new
                         {
-                            SerialNumber = "a8e5ebd8-c1cc-4f02-a79e-fbc4d64996d4",
+                            SerialNumber = "bb61e8f4-6991-43e0-a16e-e27b4e978c27",
                             Category = 2,
                             Name = "Corduroy Pants"
                         },
                         new
                         {
-                            SerialNumber = "052b9da6-6ce1-44f4-90da-2b55a649d28f",
+                            SerialNumber = "627c860d-2137-4069-aa3c-73d66001802c",
                             Category = 2,
                             Name = "Dress Pants"
                         },
                         new
                         {
-                            SerialNumber = "c6a51696-d678-4331-8f60-6dd22608fb51",
+                            SerialNumber = "4703c897-3676-46c0-828c-e0c509936bf8",
                             Category = 2,
                             Name = "Slim Fit Jeans"
                         },
                         new
                         {
-                            SerialNumber = "07547c18-c9b3-45ad-b1ec-534df83ca87b",
+                            SerialNumber = "68d710c4-f88e-496f-9291-193236277c24",
                             Category = 2,
                             Name = "Bootcut Jeans"
                         },
                         new
                         {
-                            SerialNumber = "dca361da-7773-4d67-a18f-bc6590d9dcdd",
+                            SerialNumber = "4c7fe5f2-c6d0-48d4-817f-3a9ed437ce37",
                             Category = 2,
                             Name = "Baggy Jeans"
                         },
                         new
                         {
-                            SerialNumber = "3f2caa19-8ee2-4042-a66e-d57e09812527",
+                            SerialNumber = "2b4fd4b6-e0fa-4634-8ecd-2860061d47d2",
                             Category = 2,
                             Name = "Pleated Pants"
                         },
                         new
                         {
-                            SerialNumber = "899c189a-7f65-4f45-abfe-0ee78c6a5955",
+                            SerialNumber = "7c9d0fd0-8cae-47c6-af1a-b3d0fc550956",
                             Category = 2,
                             Name = "Harem Pants"
                         },
                         new
                         {
-                            SerialNumber = "ddd443e6-1e85-4f0b-b9f0-fb28d6f050b8",
+                            SerialNumber = "0f504cf0-be5b-4497-b36a-f7633a636698",
                             Category = 2,
                             Name = "Stretch Leggings"
                         },
                         new
                         {
-                            SerialNumber = "63fd77b0-4a8a-4ec9-b557-5b0411b3b85f",
+                            SerialNumber = "c57631fb-7683-4ea8-a639-bf88f7c9615e",
                             Category = 2,
                             Name = "Palazzo Pants"
                         },
                         new
                         {
-                            SerialNumber = "5ac850dc-5129-458e-9f71-99f8930d7a9e",
+                            SerialNumber = "4faf21e0-3e44-4ff6-adfc-d49fc70a3dae",
                             Category = 2,
                             Name = "Wide Leg Pants"
                         },
                         new
                         {
-                            SerialNumber = "16c80af2-9d5d-4c29-92cd-2c0edb1d9f0c",
+                            SerialNumber = "9408ea04-0b13-4b36-bad5-7ea941e1df48",
                             Category = 2,
                             Name = "Khaki Pants"
                         },
                         new
                         {
-                            SerialNumber = "edb9d761-b835-4752-9494-5c4fcdadb88d",
+                            SerialNumber = "29ecc469-8750-4302-97f6-661b744f49a3",
                             Category = 2,
                             Name = "Yoga Pants"
                         },
                         new
                         {
-                            SerialNumber = "de37a5c1-1616-4111-ae44-b10ebacd9df2",
+                            SerialNumber = "c16c823d-68e0-4758-80de-08ba5825c4c3",
                             Category = 2,
                             Name = "Work Pants"
                         },
                         new
                         {
-                            SerialNumber = "7119b907-7054-4f4c-bf32-332d39c873e7",
+                            SerialNumber = "9bd64934-fcd6-4b4c-a2ac-ddf281f03b46",
                             Category = 2,
                             Name = "Sweatpants"
                         },
                         new
                         {
-                            SerialNumber = "50bd4d5b-816a-4fc0-9795-e0ab957ae474",
+                            SerialNumber = "b8226f59-301c-4cb4-96a1-d016007159df",
                             Category = 3,
                             Name = "Men's Boxers"
                         },
                         new
                         {
-                            SerialNumber = "94ff3b29-51a4-424f-8a92-de72e3d6a757",
+                            SerialNumber = "39b4c64c-246a-4efd-8abd-0049af0ef280",
                             Category = 3,
                             Name = "Women's Panties"
                         },
                         new
                         {
-                            SerialNumber = "5d6db497-187a-4589-a921-67e1d2e10ae7",
+                            SerialNumber = "53862a9a-de6a-4743-8a27-2d92919e44dc",
                             Category = 3,
                             Name = "Men's Briefs"
                         },
                         new
                         {
-                            SerialNumber = "ddfd1e4f-2d4c-4363-a8bd-cc08a3ebabf1",
+                            SerialNumber = "c1399e82-8f41-4d92-b4f9-9e1f60f79ec8",
                             Category = 3,
                             Name = "Women's Thong"
                         },
                         new
                         {
-                            SerialNumber = "139cb5cf-ef24-4391-9d92-f01b3f5d70cd",
+                            SerialNumber = "ecd4c91c-b312-4b22-a951-ec7679d1506c",
                             Category = 3,
                             Name = "Ladies' Bras"
                         },
                         new
                         {
-                            SerialNumber = "581ca08a-86e9-4ecf-bf04-03434a92797d",
+                            SerialNumber = "e1fd0348-c6ed-45f3-b91b-d841bfa61921",
                             Category = 3,
                             Name = "Sports Bra"
                         },
                         new
                         {
-                            SerialNumber = "01c6cd53-69d3-440d-b0f0-8d457d48379f",
+                            SerialNumber = "16b09f2e-374a-4848-a74b-849a1af2e870",
                             Category = 3,
                             Name = "Men's Undershirt"
                         },
                         new
                         {
-                            SerialNumber = "d6f2cbe1-560b-4960-81b0-3803dd4009e9",
+                            SerialNumber = "12c27a94-fd84-4c38-8ba6-3ac1838abb4e",
                             Category = 3,
                             Name = "Women's Chemise"
                         },
                         new
                         {
-                            SerialNumber = "a7d78690-708c-4677-a655-78aca29d6f61",
+                            SerialNumber = "23bed20e-a533-43a9-9875-6406455c988c",
                             Category = 3,
                             Name = "Thermal Underwear"
                         },
                         new
                         {
-                            SerialNumber = "49ab589f-f0ed-4915-9432-7d2cc3be1b18",
+                            SerialNumber = "ef3177d3-f80a-415a-8171-eba3d0dae09a",
                             Category = 3,
                             Name = "Cotton Panties"
                         },
                         new
                         {
-                            SerialNumber = "cef149c3-4cbc-4279-8034-ee3c2458ac1e",
+                            SerialNumber = "1f2b83d5-c7d2-444b-ab24-ffd332f01f51",
                             Category = 3,
                             Name = "Lace Lingerie"
                         },
                         new
                         {
-                            SerialNumber = "2b1c15f5-002f-44e1-8e4d-a6c238adb7da",
+                            SerialNumber = "6b1c256b-1569-4620-9896-5da9ff13384c",
                             Category = 3,
                             Name = "Silk Boxers"
                         },
                         new
                         {
-                            SerialNumber = "b0101087-3daf-4855-a223-25be32c36915",
+                            SerialNumber = "0f2fd740-ddc5-4432-a19f-c0198db0646a",
                             Category = 3,
                             Name = "Padded Bra"
                         },
                         new
                         {
-                            SerialNumber = "2a549e97-3b85-46ec-97bc-359f08be47bf",
+                            SerialNumber = "1d0c35dc-b0c5-456e-994b-8cb2a50b2825",
                             Category = 3,
                             Name = "Nursing Bra"
                         },
                         new
                         {
-                            SerialNumber = "9b811290-c051-4dc6-a4fc-742d6cc9e62b",
+                            SerialNumber = "8a8713ef-aed7-489d-b635-fb0f3c43cb46",
                             Category = 3,
                             Name = "Shapewear Bodysuit"
                         },
                         new
                         {
-                            SerialNumber = "8bb115f6-a5cd-43f5-a8f9-1725e4174a2e",
+                            SerialNumber = "045a447b-11f0-4086-94c7-0d892fd09c1f",
                             Category = 3,
                             Name = "Men's Trunks"
                         },
                         new
                         {
-                            SerialNumber = "ad1b8c13-dbee-450f-9dca-2eaf568e617b",
+                            SerialNumber = "be9fdb1e-3150-4f59-bf79-8ce9351235c2",
                             Category = 3,
                             Name = "Bikini Briefs"
                         },
                         new
                         {
-                            SerialNumber = "2247b86f-7a19-4d29-9e8d-b41fefbaebc6",
+                            SerialNumber = "cbe8f6be-5dc0-4880-8004-a682ca3dbece",
                             Category = 3,
                             Name = "Long Underwear"
                         },
                         new
                         {
-                            SerialNumber = "fec6bd7a-02aa-4a92-82f2-9c27d2cc95ea",
+                            SerialNumber = "f0c9e068-7114-4721-b6c2-5e1a7d6e7d9c",
                             Category = 3,
                             Name = "Men's Compression Shorts"
                         },
                         new
                         {
-                            SerialNumber = "aa8cdd5d-0336-4c70-9008-98bc83422836",
+                            SerialNumber = "6441f432-c8c3-4c90-a26e-45df9ba794ba",
                             Category = 3,
                             Name = "Men's Athletic Supporter"
                         },
                         new
                         {
-                            SerialNumber = "530c8dc5-89eb-4d40-b36b-f486138fa0c6",
+                            SerialNumber = "153d10a6-b906-46fa-bdc8-a12e370a6e24",
                             Category = 4,
                             Name = "Graphic T-Shirt"
                         },
                         new
                         {
-                            SerialNumber = "38408a02-8865-4b23-ba4a-766daf77391a",
+                            SerialNumber = "525db78c-6e8f-4ca0-b183-973cdbc6178b",
                             Category = 4,
                             Name = "Plain White Tee"
                         },
                         new
                         {
-                            SerialNumber = "a86a16b1-98bd-4574-9793-e4e5755ed1cd",
+                            SerialNumber = "32c0727b-9201-4bc3-a2fc-9312d605387a",
                             Category = 4,
                             Name = "V-Neck T-Shirt"
                         },
                         new
                         {
-                            SerialNumber = "60903417-7486-47c7-9c8e-9deef20fb563",
+                            SerialNumber = "88a762d1-eb80-4e48-af1e-14db68084e3c",
                             Category = 4,
                             Name = "Crew Neck T-Shirt"
                         },
                         new
                         {
-                            SerialNumber = "33cd66cd-009d-4dfa-9edc-d09992867213",
+                            SerialNumber = "ca7ed398-8f3b-4af9-8ec6-90195907d049",
                             Category = 4,
                             Name = "Long Sleeve Tee"
                         },
                         new
                         {
-                            SerialNumber = "6158dddc-998d-4a33-9fd9-5fae355262fd",
+                            SerialNumber = "15cb4c18-0d77-44b1-b1b8-929a86a5a358",
                             Category = 4,
                             Name = "Striped T-Shirt"
                         },
                         new
                         {
-                            SerialNumber = "a4f8f790-17aa-4b40-9fb9-f520607be4c2",
+                            SerialNumber = "192507d9-5169-49bc-91c6-2c90f26eaf7d",
                             Category = 4,
                             Name = "Pocket Tee"
                         },
                         new
                         {
-                            SerialNumber = "00868bdf-6fd2-4cbd-80d2-4c411814f3f1",
+                            SerialNumber = "c5db0e9e-e3a6-4e3c-95ce-120e4c69010e",
                             Category = 4,
                             Name = "Henley Shirt"
                         },
                         new
                         {
-                            SerialNumber = "f54efd63-ca9d-456c-967f-3096a17e8656",
+                            SerialNumber = "b9992a46-c391-46ad-b431-5098ee388b90",
                             Category = 4,
                             Name = "Polo Shirt"
                         },
                         new
                         {
-                            SerialNumber = "92285164-5a3f-40ce-86f5-4a40048afe69",
+                            SerialNumber = "988928fa-238b-4aee-8752-1e7c59097cf4",
                             Category = 4,
                             Name = "Raglan T-Shirt"
                         },
                         new
                         {
-                            SerialNumber = "c1342c53-2a15-4b27-86af-3d41751e309c",
+                            SerialNumber = "62fecedd-1fd2-481d-b366-509296cfb5b5",
                             Category = 4,
                             Name = "Crop Top"
                         },
                         new
                         {
-                            SerialNumber = "9f968557-9af8-4def-8274-444e659939a6",
+                            SerialNumber = "8087e376-b921-4eb0-87a9-0b4944a11de0",
                             Category = 4,
                             Name = "Tank Top"
                         },
                         new
                         {
-                            SerialNumber = "5125abf2-a72b-4626-9109-5310dd9286e4",
+                            SerialNumber = "299b4a9e-7877-435a-ae0b-8c14e2f45a49",
                             Category = 4,
                             Name = "Baseball T-Shirt"
                         },
                         new
                         {
-                            SerialNumber = "b7c7b463-01e4-421c-8438-43b7fdea3f6d",
+                            SerialNumber = "8e0feb22-dc20-46e7-9b86-469ba6f0f4d6",
                             Category = 4,
                             Name = "Muscle Tee"
                         },
                         new
                         {
-                            SerialNumber = "071a9c92-4540-45b3-9224-eaf1847f8e69",
+                            SerialNumber = "1721274f-3a94-4856-adde-39becfeaac2b",
                             Category = 4,
                             Name = "Hooded T-Shirt"
                         },
                         new
                         {
-                            SerialNumber = "93c7af49-3142-4f72-9ecb-450d6547b750",
+                            SerialNumber = "0c67f707-2283-4a6d-abc9-d352c4535ef3",
                             Category = 4,
                             Name = "Sleeveless T-Shirt"
                         },
                         new
                         {
-                            SerialNumber = "71b10e21-70e0-414f-8ad6-d35b5b5e0eee",
+                            SerialNumber = "e1f7fefc-5f8c-48bb-af85-337dfc8ce9bb",
                             Category = 4,
                             Name = "Slim Fit T-Shirt"
                         },
                         new
                         {
-                            SerialNumber = "c6878bd9-9446-4eb6-ab9c-3887c6bb424a",
+                            SerialNumber = "3e545df8-3a88-461c-8a5c-7b4a45f48c45",
                             Category = 4,
                             Name = "Graphic Hoodie"
                         },
                         new
                         {
-                            SerialNumber = "6fb713f5-90c5-49bf-968f-62810fa424f4",
+                            SerialNumber = "3329e303-4470-4270-b360-6342a48f64e8",
                             Category = 4,
                             Name = "Ringer Tee"
                         },
                         new
                         {
-                            SerialNumber = "bcbf4f28-b975-4de5-a14c-6ca57637c357",
+                            SerialNumber = "8f183f3a-b3a3-4cdf-9b3b-7b069a17fcc4",
                             Category = 4,
                             Name = "Vintage Band Tee"
                         });

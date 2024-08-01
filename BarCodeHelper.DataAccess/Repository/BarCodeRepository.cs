@@ -13,9 +13,18 @@ namespace BarCodeHelper.DataAccess.Repository
             _db = db;
         }
 
-        public void Update(BarCode obj)
+        public void Update(BarCode barCode)
         {
-            _db.BarCodes.Update(obj);
+            var objFromDb = _db.BarCodes.FirstOrDefault(f => f.BarCodeNumber == barCode.BarCodeNumber);
+
+            if (objFromDb != null)
+            {
+                objFromDb.Product.Name = barCode.Product.Name;
+                objFromDb.Product.Category = barCode.Product.Category;
+
+                _db.BarCodes.Update(objFromDb);
+            }
+
         }
     }
 }

@@ -24,12 +24,24 @@ namespace CookSupp.Areas.Customer.Controllers
         [HttpPost]
         public IActionResult Index(BarCode barCode)
         {
-            var barCodeFromDB = _unitOfWork.BarCodeRepository.Get(b => b.BarCodeNumber == barCode.BarCodeNumber, includeProperties: "Product");
+            if(!ModelState.IsValid)
+            {
+                return View(barCode);
+            }
 
-            // zapisaæ produkt i zapisaæ barcode
+            var barCodeFromDB = _unitOfWork.BarCodeRepository.Get(b => b.BarCodeNumber == barCode.BarCodeNumber, includeProperties: "Product");
+            var productFromDB = _unitOfWork.ProductRepository.Get(p => p.SerialNumber == barCode.ProductSerialNumber);
+
+            if (productFromDB != null) {
+                // tutaj powinna byæ informacja o tym, ze siê nie uda³o, bo taki element istnieje
+                // dodatkowo powinno byæ pytanie czy u¿yæ istniej¹cego elementu
+            }
+
             if (barCodeFromDB == null) {
 
                 var product = barCode.Product;
+                barCode.Created = DateTime.Now;
+                product.SerialNumber = barCode.ProductSerialNumber;
 
                 _unitOfWork.ProductRepository.Add(product);
                 _unitOfWork.BarCodeRepository.Add(barCode);
@@ -45,7 +57,6 @@ namespace CookSupp.Areas.Customer.Controllers
         public IActionResult GetAllCategories()
         {
             var categories = Enum.GetNames(typeof(ProductCategory));
-            //var sss = (ProductCategory)Enum.Parse(typeof(ProductCategory), categories[0]);
             return Json(new { data = categories });
         }
 
